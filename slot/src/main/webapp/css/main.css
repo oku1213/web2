@@ -1,0 +1,17 @@
+html{
+	background-color:pink;
+}
+table{
+	width:600px;
+	margin:50px auto 0;
+}
+td{
+	background-color:white;
+	text-align:center;
+	font-size:200px;
+}
+p{
+	margin-top:0;
+	text-align:center;
+	font-size:100px;
+}

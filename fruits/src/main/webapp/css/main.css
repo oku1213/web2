@@ -1,0 +1,21 @@
+html{
+	background-color:#B71C1C;
+}
+#container{
+	width:600px;
+	margin:50px auto;
+	background-color:#FFF3E0;
+	padding:50px;
+}
+h1{
+	text-align:center;
+}
+table{
+	width:390px;
+	margin:0 auto;
+}
+th,td{
+	padding:8px 20px;
+	text-align:center;
+	background-color:#FFEB3B;
+}
