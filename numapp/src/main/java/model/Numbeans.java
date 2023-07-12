@@ -2,17 +2,16 @@ package model;
 
 import java.io.Serializable;
 
-public class Num implements Serializable{
+public class Numbeans implements Serializable {
 	private String org;
 	private int size;
 	private int max;
 	private int min;
 	private int sum;
 	
-	public Num() {}
-	public Num(String org) {
+	public Numbeans() {}
+	public Numbeans(String org) {
 		this.org = org;
-		
 	}
 	public String getOrg() {
 		return org;
@@ -44,4 +43,5 @@ public class Num implements Serializable{
 	public void setSum(int sum) {
 		this.sum = sum;
 	}
-}	
+	
+}

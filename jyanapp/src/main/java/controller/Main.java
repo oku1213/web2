@@ -8,27 +8,33 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import model.Num;
-import model.NumLogic;
+import model.Jyan;
+import model.JyanLogic;
 
-@WebServlet("/NumMain")
-public class NumMain extends HttpServlet {
+@WebServlet("/Main")
+public class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/form.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/main.jsp");
 		rd.forward(request, response);
 	}
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String org = request.getParameter("org");
-		Num num = new Num(org);
-		NumLogic logic =new NumLogic();
-		logic.execute(num);
-		request.setAttribute("num", num);
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/result.jsp");
-		rd.forward(request, response);
+		request.setCharacterEncoding("UTF-8");
+		String hand = request.getParameter("hand");
+		HttpSession session = request.getSession();
+		Jyan jyan = (Jyan)session.getAttribute("jyan");
+		if(jyan == null) {
+			jyan = new Jyan();
+		}
+		
+		jyan.setUserHand(hand);
+		JyanLogic logic = new JyanLogic();
+		logic.execute(jyan);
+		
+		session.setAttribute("jyan", jyan);
+		doGet(request, response);
 	}
-
 }

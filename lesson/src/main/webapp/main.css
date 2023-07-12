@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+*{
+	box-sizing: border-box;
+}
+div{
+	width: 400px;
+	height: 250px;
+	background-color: pink;
+	border: 5px solid black;
+	padding: 10px;
+}
