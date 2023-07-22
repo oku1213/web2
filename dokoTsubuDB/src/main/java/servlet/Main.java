@@ -40,7 +40,6 @@ public class Main extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// リクエストパラメータの取得
-		request.setCharacterEncoding("UTF-8");
 		String text = request.getParameter("text");
 
 		// 入力値チェック

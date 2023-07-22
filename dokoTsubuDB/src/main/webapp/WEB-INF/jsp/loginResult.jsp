@@ -1,10 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="model.User" %>
-<%
-//セッションスコープからユーザー情報を取得
-User loginUser = (User)session.getAttribute("loginUser");
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -14,13 +10,18 @@ User loginUser = (User)session.getAttribute("loginUser");
 </head>
 <body>
 <h1>どこつぶログイン</h1>
-<% if(loginUser != null) { %>
+<c:choose>
+<c:when test="${ not empty loginUser.name }">
 <p>ログインに成功しました</p>
-<p>ようこそ<%= loginUser.getName() %>さん</p>
+<p>ようこそ<c:out value="${ loginUser.name }" />さん</p>
 <a href="Main">つぶやき投稿・閲覧へ</a>
-<% } else { %>
+</c:when>
+
+<c:otherwise>
 <p>ログインに失敗しました</p>
 <a href="index.jsp">TOPへ</a>
-<%} %>
+</c:otherwise>
+</c:choose>
+<jsp:include page="footer.jsp" />
 </body>
 </html>
